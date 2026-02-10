@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 2nd Monthsary, my Love! 💖</title>
+<link rel="stylesheet" href="design.css">
+</head>
+<body>
+<div class="background"></div>
+<div class="floating-hearts"> 
+</div>
+<div class="overlay"></div>
+<div class="container">
+
+
+    <div class="card" id="lockScreen">
+        <h1>🔒 Login to view</h1>
+        <p>Enter the password to unlock something special 💕</p>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Unlock ❤️</button>
+        <div class="error" id="error">Wrong password. Try again 💔</div>
+    </div>
+
+
+    <div class="envelope" id="envelope" style="display: none;">
+        <div class="address-lines">
+            <div class="to">To: My Dearest Love, Jesna</div>
+            <div class="from">From: Your Sweetie, Robel</div>
+        </div>
+        <img src="mocha-bear-hearts.gif" alt="Mocha Bear Hearts" class="envelope-gif">
+        <div class="wax-seal"></div>
+        💌
+    
+        <div class="small-envelope" id="small-envelope">
+            <div class="small-flap"></div>
+            📬
+        </div>
+    </div>
+
+    <div class="letter" id="content">
+        <h1>❤️ Happy 2nd Monthsary my Love!! ❤️ </h1>
+        <p>February 12, 2026. This is our second monthsary together as a couple, and six months of us being bestfriends. I never thought that we will be celebrating this milestone in the month of love, so close to Valentine's Day. Because of this, this monthsary feels more special to celebrate. With this, we are celebrating both the day of love and the day of us. While creating this letter, I can't help but also think of the stuffs that happened throughout this year, a lot of happenings and experiences but despite all of that, we stayed close to each other, and we fell more deeply in love with each other day by day. If I have to think of a song for this monthsary, it will be the song Fallingforyou by 1975 especially the line "I think I am falling, I'm falling for you". That lyric feels true to me, because I find myself falling more in love with you each day. Even if the rest of the song may not perfectly reflect our story, that single line captures exactly how my heart feels whenever I think of you.</p>
+        <p>And with this, Happy 2nd monthsary my love!! It feels so special to me to be celebrating this monthsary with my birthday coming up. Thank you for being the best girlfriend that I could ask for, for being there at my side whenever I need you and for simply being you. I still vividly remember our conversation about how we could make our relationship strong, and I’m glad that we are still living by our mantra: communication, comprehension, and compassion. We turn to it whenever one of us isn’t okay or is going through something difficult, and it makes me happy knowing that we continue to choose each other and work through things together.</p>
+        <p>As we celebrate our 2nd monthsary, I pray to God to keep our relationship strong and steady like a rock. I pray that whatever challenges or situations come our way, we will be able to overcome them together as a couple, facing everything with love, compassion, and understanding. I hope that day by day, we continue to find ourselves falling more in love with each other despite our busy schedules and everything else life brings. Let’s create more memories together and experience more of our firsts, araseo? I love youu and Happy Monthsary my Love~ 💗</p>
+        <p class="signature"><em>Always yours,</em><br><strong>Robel</strong></p>
+    </div>
+
+    <div class="polaroids" id="polaroids">
+        <div class="polaroid" style="transform: rotate(-5deg);">
+            <img src="Couple-Pic 1.jpg" alt="Photo of our first date">
+            <p>Selfie - Saekyung 💕</p>
+        </div>
+        <div class="polaroid" style="transform: rotate(3deg);">
+            <img src="Couple-Pic 2.jpg" alt="Photo of our beach day">
+            <p>Selfie - Robinsons 💞</p>
+        </div>
+        <div class="polaroid" style="transform: rotate(-2deg);">
+            <img src="Couple-Pic 3.jpg" alt="First photo">
+            <p>First photo of us 💗</p>
+        </div>
+        <div class="polaroid" style="transform: rotate(4deg);">
+            <img src="Couple-Pic 4.jpg" alt="Photo of our starry night">
+            <p>Mcdo Daateeee ✨</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function checkPassword() {
+    const correctPassword = "February 12, 2026";
+    const userPassword = document.getElementById("password").value;
+
+    if (userPassword === correctPassword) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("envelope").style.display = "block";
+        document.getElementById("content").style.display = "none";
+        document.getElementById("polaroids").style.display = "none";
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+
+
+document.getElementById('envelope').addEventListener('click', () => {
+    document.getElementById("content").style.display = "block";
+    document.getElementById("content").classList.add("slide-up");
+    document.getElementById("envelope").style.display = "none";
+    document.getElementById("polaroids").style.display = "none"; 
+});
+
+
+document.getElementById('small-envelope').addEventListener('click', (event) => {
+    event.stopPropagation(); 
+    document.getElementById("polaroids").style.display = "flex";
+    document.getElementById("polaroids").classList.add("fade-in");
+    document.getElementById("envelope").style.display = "none";
+    document.getElementById("content").style.display = "none"; 
+});
+
+
+document.getElementById('content').addEventListener('click', () => {
+    document.getElementById("content").style.display = "none";
+    document.getElementById("content").classList.remove("slide-up");
+    document.getElementById("envelope").style.display = "block";
+    document.getElementById("polaroids").style.display = "none"; 
+});
+
+
+document.getElementById('polaroids').addEventListener('click', () => {
+    document.getElementById("polaroids").style.display = "none";
+    document.getElementById("polaroids").classList.remove("fade-in");
+    document.getElementById("envelope").style.display = "block";
+});
+
+
+const hearts = ['❤️', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💕', '💞', '💓', '💗', '💖', '💘', '💝', '💟'];
+const sizes = ['small', 'medium', 'large', 'extra large'];
+const floatingHearts = document.querySelector('.floating-hearts');
+
+for (let i = 0; i < 150; i++) {
+    const heartDiv = document.createElement('div');
+    heartDiv.className = 'heart ' + sizes[Math.floor(Math.random() * sizes.length)];
+    heartDiv.style.left = Math.random() * 100 + '%';
+    heartDiv.style.animationDelay = Math.random() * 20 + 's';
+    heartDiv.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    floatingHearts.appendChild(heartDiv);
+}
+</script>
+
+</body>
+</html>
